@@ -2,5 +2,5 @@ chainlit==1.0.301
 langchain==0.1.9
 langchain_community==0.0.24
 openai==1.13.3
-pinecone==0.1.0
+pinecone-client==3.0.0
 python-dotenv==1.0.1
