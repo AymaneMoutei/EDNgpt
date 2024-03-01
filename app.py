@@ -3,7 +3,7 @@ import chainlit as cl
 import os
 from openai import OpenAI
 from pinecone import Pinecone
-
+from dotenv import load_dotenv, dotenv_values
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 import copy
@@ -23,7 +23,7 @@ from chainlit.types import ThreadDict
 
 
 id = "1st convo"
-pc = Pinecone(api_key="82336489-f7b9-4117-86d9-61e6aa17f629")
+pc = Pinecone(os.getenv("PINECONE_API_KEY"))
 index = pc.Index("chatbotgpt")
 
 # prompt template for the chatbot
@@ -54,7 +54,7 @@ Personnalisation : EDN GPT offre des réponses détaillées et adaptées aux bes
 client = OpenAI(
     # This is the default and can be omitted
     #api_key=os.environ.get("OPENAI_API_KEY"),
-    api_key = "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"
+    api_key = os.getenv("OPENAI_API_KEY"),
 )
 
 # thread_id = thread_LKjnEX1rKhYmYDSI9KMJ88Fw
